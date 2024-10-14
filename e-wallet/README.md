@@ -1,3 +1,7 @@
+WiP project in React. using Redux Toolkit.
+
+Will add more project info soon.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
