@@ -22,12 +22,37 @@ const cardSlice = createSlice({
     },
 
     setActiveCard: (state, action) => {
-      state.activeCardId = action.payload; //sätter det valda kortet som aktivt
+      //sätter ett annat kort som aktivt
+      const cardId = action.payload;
+      state.activeCardId = cardId;
+
+      //gör alla andra korten inaktiva
+      state.cards = state.cards.map((card) =>
+        card.id === cardId ? card : { ...card }
+      );
+    },
+
+    upDateCard: (state, action) => {
+      //uppdaterar kortets info om det är inaktivt
+      const { id, name, number, owner } = action.payload;
+      const card = state.cards.find((card) => card.id === id);
+      if (card) {
+        card.name = name;
+        card.number = number;
+        card.owner = owner;
+      }
+    },
+
+    deleteCard: (state, action) => {
+      //raderar ett kort om det är inaktivt
+      const cardId = action.payload;
+      state.cards = state.cards.filter((card) => card.id !== cardId);
     },
   },
 });
 
-export const { addCard, setActiveCard } = cardSlice.actions;
+export const { addCard, setActiveCard, updateCard, deleteCard } =
+  cardSlice.actions;
 export default cardSlice.reducer;
 
 /*

@@ -1,8 +1,9 @@
 import { useSelector, useDispatch} from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setActiveCard } from '../redux/cardSlice';
 
 export const CardContainer = () => {
-const dispatch = useDispatch();
+const dispatch = useDispatch(); //Rensa detta?
 const { cards, activeCardId } = useSelector((state) => state.cards);
 
 //hämtar det aktiva kortet
@@ -18,6 +19,7 @@ let inactiveCards = cards.filter(card => card.id !== activeCardId);
           <h2>{activeCard.name}</h2>
           <h3>{activeCard.number}</h3>
           <p>Name: {activeCard.owner}</p>
+          <Link to={`/card/${activeCard.id}`}>View Details</Link>
           </div>
         )}
 
@@ -27,6 +29,7 @@ let inactiveCards = cards.filter(card => card.id !== activeCardId);
             <h2>{card.name}</h2>
             <h3>{card.number}</h3>
             <p>Name: {card.owner}</p>
+            <Link to={`/card/${card.id}`}>View Details</Link>
           </div>
         ))}
         
