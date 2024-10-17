@@ -1,14 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './routes/HomePage';
 import Settings from './routes/Settings';
+import Header from './components/Header/Header';
 import AddCard from './routes/AddCard';
 import Card from './routes/Card';
-import { CardContainer } from './features/CardContainer';
 import './App.css';
+import './index.css';
 
 function App() {
   return (
     <>
+    <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/addcard" element={<AddCard />} />

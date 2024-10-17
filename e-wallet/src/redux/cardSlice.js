@@ -12,10 +12,10 @@ const cardSlice = createSlice({
     addCard: (state, action) => {
       //ett nytt kort blir automatiskt det aktiva kortet
       const newCard = action.payload;
-      state.cards.push(newCard);
-      state.activeCardId = newCard.id;
+      state.cards.push(newCard); //lägger till ett nytt kort
 
-      //OM det finns ett aktivt kort uppdateras det till inaktivt
+      //gör det nya kortet aktivt och uppdatera andra kort som inaktiva
+      state.activeCardId = newCard.id;
       state.cards = state.cards.map((card) =>
         card.id === newCard.id ? card : { ...card }
       );
@@ -32,14 +32,16 @@ const cardSlice = createSlice({
       );
     },
 
-    upDateCard: (state, action) => {
+    updateCard: (state, action) => {
       //uppdaterar kortets info om det är inaktivt
-      const { id, name, number, owner } = action.payload;
+      const { id, issuer, number, owner, expire, ccv } = action.payload;
       const card = state.cards.find((card) => card.id === id);
       if (card) {
-        card.name = name;
+        card.issuer = issuer;
         card.number = number;
         card.owner = owner;
+        card.expire = expire;
+        card.ccv = ccv;
       }
     },
 

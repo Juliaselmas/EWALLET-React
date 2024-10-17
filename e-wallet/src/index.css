@@ -30,6 +30,66 @@ body {
   min-height: 100vh;
 }
 
+.AddNewCardContainer {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+  form {
+    margin-top: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    
+    label {
+      margin: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        margin-left: 20px;
+      }
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  }
+
+}
+
+.CardInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    margin-top: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    
+    label {
+      margin: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        margin-left: 20px;
+      }
+    }
+
+    button {
+      margin: 20px 6px 0px 6px;
+      
+    }
+  }
+
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -46,23 +106,8 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useLocation, useParams } from "react-router-dom"
 import { useSelector } from 'react-redux';
-import { CardContainer } from '../features/CardContainer';
+import { CardContainer } from '../features/CardContainer/CardContainer';
 
 
 function HomePage() {
@@ -10,8 +10,7 @@ function HomePage() {
   const cards = useSelector((state) => state.cards.cards);
   
     return (
-      <div>
-      <h1>Home Page</h1>
+      <div className="HomePage">
       <CardContainer />
 
       {cards.length < 4 && (
