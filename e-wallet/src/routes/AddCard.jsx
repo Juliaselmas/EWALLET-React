@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../redux/cardSlice";
 import { useNavigate } from "react-router-dom";
 import CardDisplay from "../components/CardDisplay/CardDisplay";
+import AddCardInputs from "../components/AddCardInputs/AddCardInputs";
 import { isCardNumberValid, isNameValid, isExpirationDateValid, isCcvValid } from "../helpers/validation";
+
 
 function AddCard() {
   const [issuer, setIssuer] = useState("");
@@ -18,19 +19,18 @@ function AddCard() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cards = useSelector((state) => state.cards.cards);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //kollar om alla fält är ifyllda
     if (!issuer || !number || !firstName || !lastName || !expireMonth || !expireYear || !ccv) {
       setError("Unable to add card. Please submit all required info");
       return;
     }
 
-    //valideringsfunktioner
-    if (!isCardNumberValid(number)) {
+    const rawNumber = number.replace(/\s+/g, ""); // Ta bort formateringen för validering
+
+    if (!isCardNumberValid(rawNumber)) {
       setError("Invalid card number. Must be 16 digits.");
       return;
     }
@@ -51,16 +51,16 @@ function AddCard() {
     }
 
     const newCard = {
-      id: Date.now(), // Unikt ID för varje kort
+      id: Date.now(),
       issuer,
-      number: number.replace(/\s+/g, '').replace(/(\d{4})(?=\d)/g, '$1 '), // Formatera kortnumret
+      number: rawNumber.replace(/(\d{4})(?=\d)/g, "$1 "), // Formatera igen för lagring
       owner: `${firstName} ${lastName}`,
       expire: `${expireMonth}/${expireYear}`,
       ccv,
     };
 
-    dispatch(addCard(newCard)); // Dispatchar det nya kortet som ska bli aktivt
-    navigate("/"); // Navigerar tillbaka till hemsidan efter att kortet lagts till
+    dispatch(addCard(newCard));
+    navigate("/");
   };
 
   return (
@@ -68,7 +68,6 @@ function AddCard() {
       <h1>Add New Card</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-  
       <CardDisplay 
         issuer={issuer || "XXXXX"} 
         number={number || "XXXX XXXX XXXX XXXX"} 
@@ -79,79 +78,22 @@ function AddCard() {
       />
 
       <form onSubmit={handleSubmit}>
-        <label>
-          Card Issuer:
-          <select value={issuer} onChange={(e) => setIssuer(e.target.value)}>
-            <option value="">Select Issuer</option>
-            <option value="Mastercard">Mastercard</option>
-            <option value="Visa">Visa</option>
-            <option value="American Express">American Express</option>
-          </select>
-        </label>
-
-        <label>
-          Card Number:
-          <input
-            type="text"
-            value={number}
-            placeholder="xxxx xxxx xxxx xxxx"
-            onChange={(e) => setNumber(e.target.value)}
-            maxLength={19}
-          />
-        </label>
-
-        <label>
-          First Name:
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </label>
-
-        <label>
-          Last Name:
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </label>
-
-        <label>
-          Expiry Month (MM):
-          <input
-            type="text"
-            value={expireMonth}
-            placeholder="MM"
-            maxLength={2}
-            onChange={(e) => setExpireMonth(e.target.value)}
-          />
-        </label>
-
-        <label>
-          Expiry Year (YY):
-          <input
-            type="text"
-            value={expireYear}
-            placeholder="YY"
-            maxLength={2}
-            onChange={(e) => setExpireYear(e.target.value)}
-          />
-        </label>
-
-        <label>
-          CCV:
-          <input
-            type="text"
-            value={ccv}
-            placeholder="XXX"
-            maxLength={3}
-            onChange={(e) => setCcv(e.target.value)}
-          />
-        </label>
-
-        <button type="submit">Add Card</button>
+        <AddCardInputs
+          issuer={issuer}
+          setIssuer={setIssuer}
+          number={number}
+          setNumber={setNumber}
+          firstName={firstName}
+          setFirstName={setFirstName}
+          lastName={lastName}
+          setLastName={setLastName}
+          expireMonth={expireMonth}
+          setExpireMonth={setExpireMonth}
+          expireYear={expireYear}
+          setExpireYear={setExpireYear}
+          ccv={ccv}
+          setCcv={setCcv}
+        />
       </form>
     </div>
   );

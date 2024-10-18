@@ -1,0 +1,13 @@
+.themeToggleContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}

@@ -1,7 +1,29 @@
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .prompt-bold {
+    font-family: "Prompt", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .orbitron {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+ 
+  
+
 .Card {
     background-color: rgb(207, 195, 195);
     color: rgb(39, 39, 39);
     width: 30rem;
+    border: 2px solid rgb(35, 35, 35);
     min-height: 18rem;
     border-radius: 4px;
     padding: 8px;
@@ -10,9 +32,10 @@
 
 }
 
-.CardMasterCard {
+.CardGlobalPay {
     background-image: url("/Users/julia/Desktop/KOD/JAVASCRIPT3/PROJEKT/e-wallet/images/background-texture-blue.jpg");
     color: rgb(39, 39, 39);
+    border: 2px solid rgb(35, 35, 35);
     width: 30rem;
     margin: 12px;
     min-height: 18rem;
@@ -20,11 +43,18 @@
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+
+    h2 {
+        font-family:"Prompt";
+        font-weight: 700;
+        font-size: 2em;
+    }
 }
 
-.CardVisa {
+.CardFlexiCard {
     background-image: url("/Users/julia/Desktop/KOD/JAVASCRIPT3/PROJEKT/e-wallet/images/background-texture-green.jpg");
     color: rgb(39, 39, 39);
+    border: 2px solid rgb(35, 35, 35);
     width: 30rem;
     margin: 12px;
     min-height: 18rem;
@@ -33,22 +63,34 @@
     display: flex;
     flex-direction: column;
 
+    h2 {
+        font-family:"Bebas Neue";
+        font-size: 2em;
+    }
+
 }
 
-.CardAmericanExpress {
+.CardTitanCredit {
     background-image: url("/Users/julia/Desktop/KOD/JAVASCRIPT3/PROJEKT/e-wallet/images/background-texture-yellow.jpg");
     color: rgb(39, 39, 39);
     width: 30rem;
+    border: 2px solid rgb(35, 35, 35);
     margin: 12px;
     min-height: 18rem;
     padding: 8px;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+
+    h2 {
+        font-family:"Orbitron";
+        font-size: 2em;
+    }
 }
 
 .CardExpire, .CardCcv, .CardOwner {
     margin-bottom: 8px;
+    margin-top: 4px;
 }
 
 .CardIssuer {
@@ -59,7 +101,7 @@
 
 .CardNumber {
     font-size: 2em;
-    margin-left: 12px;
+    margin-left: 24px;
     margin-bottom: 0;
     color:rgb(39, 39, 39);
     display: flex;
@@ -68,9 +110,10 @@
 
 .CardOwner {
     color:rgb(39, 39, 39);
-    margin-left: 12px;
+    margin-left: 24px;
     display: flex;
     justify-content: flex-start;
+    font-size: 1.4em;
 }
 
 .CardExpireCcvContainer {
@@ -80,9 +123,11 @@
 
 .CardCcv {
     color:rgb(39, 39, 39);
-    margin-right: 12px;
+    margin-right: 24px;
+    font-weight: bold;
 }
 
 .CardExpire {
-    margin-left: 12px;
+    margin-left: 24px;
+    font-weight: bold;
 }

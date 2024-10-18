@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom"
-import { useLocation, useParams } from "react-router-dom"
+import ThemeToggle from "../features/ThemeToggle/ThemeToggle";
+import DeleteInactiveCards from "../features/DeleteInactiveCards/DeleteInactiveCards";
 
-function Settings() {
-  
-    return (
-      <>
-        <h1>THIS IS THE PAGE FOR SETTINGS</h1>
-      </>
-    )
-  }
-  
-  export default Settings
-  
+const Settings = ({ setTheme }) => {
+  return (
+    <div>
+      <ThemeToggle setTheme={setTheme} /> {/* Skickar setTheme */}
+      <DeleteInactiveCards />
+    </div>
+  );
+};
+
+export default Settings;

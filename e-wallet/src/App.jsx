@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 import HomePage from './routes/HomePage';
 import Settings from './routes/Settings';
 import Header from './components/Header/Header';
@@ -8,13 +9,19 @@ import './App.css';
 import './index.css';
 
 function App() {
+  const [theme, setTheme] = useState('light'); // Default light theme
+
+  useEffect(() => {
+    document.body.className = theme; // Applicera temaklassen på <body>
+  }, [theme]);
+
   return (
     <>
-    <Header />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/addcard" element={<AddCard />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/settings" element={<Settings setTheme={setTheme} />} />
         <Route path="/card/:id" element={<Card />} />
       </Routes>
     </>

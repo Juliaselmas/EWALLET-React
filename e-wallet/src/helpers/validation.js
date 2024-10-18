@@ -3,7 +3,7 @@ export const isCardNumberValid = (number) => {
 };
 
 export const isNameValid = (name) => {
-  return /^[a-zA-Z]+$/.test(name);
+  return /^[a-zA-ZåäöÅÄÖ]+$/.test(name);
 };
 
 export const isExpirationDateValid = (month, year) => {

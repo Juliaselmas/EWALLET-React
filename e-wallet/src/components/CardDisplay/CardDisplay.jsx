@@ -14,12 +14,12 @@ const CardDisplay = ({
 
     const getCardClass = (issuer) => {
         switch (issuer) {
-          case "Mastercard":
-            return CardDisplayCSS.CardMasterCard;
-          case "Visa":
-            return CardDisplayCSS.CardVisa;
-          case "American Express":
-            return CardDisplayCSS.CardAmericanExpress;
+          case "GlobalPay":
+            return CardDisplayCSS.CardGlobalPay;
+          case "FlexiCard":
+            return CardDisplayCSS.CardFlexiCard;
+          case "Titan Credit":
+            return CardDisplayCSS.CardTitanCredit;
           default:
             return CardDisplayCSS.Card; // Default stil om ingen issuer matchar
         }
