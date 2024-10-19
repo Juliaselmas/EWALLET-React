@@ -9,10 +9,10 @@ import './App.css';
 import './index.css';
 
 function App() {
-  const [theme, setTheme] = useState('light'); // Default light theme
+  const [theme, setTheme] = useState('light'); 
 
   useEffect(() => {
-    document.body.className = theme; // Applicera temaklassen på <body>
+    document.body.className = theme; 
   }, [theme]);
 
   return (

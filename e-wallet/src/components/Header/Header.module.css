@@ -5,14 +5,25 @@
     min-height: 8rem;
     margin: 0;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 1rem;
-    background-color: #efe6e660;
+    padding: 16px;
+    
+    h1 {
+        font-size:5.1em;
+        margin: 20px 12px 12px 12px;
+        font-family: Londrina Sketch;
+      }
+    
 
     button {
-font-size: 2rem;
-text-decoration: none;
-font-weight: bold;
+        font-size: 1.2rem;
+        text-decoration: none;
+        font-weight: bold;
+        font-family:'Courier New', Courier, monospace;
+        
     }
+
+
   }

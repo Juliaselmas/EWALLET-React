@@ -1,0 +1,14 @@
+.ThemeToggle {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  
+  button{
+    margin: 26px;
+    cursor: pointer;
+    padding: 16px 24px;
+    font-size: 3em;
+  }
+}
+
+

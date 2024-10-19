@@ -20,8 +20,8 @@
   
 
 .Card {
-    background-color: rgb(207, 195, 195);
-    color: rgb(39, 39, 39);
+    background-color: rgba(207, 195, 195, 0.083);
+    color: rgb(38, 38, 38);
     width: 30rem;
     border: 2px solid rgb(35, 35, 35);
     min-height: 18rem;
@@ -33,7 +33,7 @@
 }
 
 .CardGlobalPay {
-    background-image: url("/Users/julia/Desktop/KOD/JAVASCRIPT3/PROJEKT/e-wallet/images/background-texture-blue.jpg");
+    background-image: url("/Users/julia/Desktop/KOD/JAVASCRIPT3/PROJEKT/e-wallet/images/cesar-couto-ChwzGlq8OlA-unsplash (1).jpg");
     color: rgb(39, 39, 39);
     border: 2px solid rgb(35, 35, 35);
     width: 30rem;
@@ -46,6 +46,7 @@
 
     h2 {
         font-family:"Prompt";
+        color: rgb(39, 39, 39);
         font-weight: 700;
         font-size: 2em;
     }
@@ -65,13 +66,14 @@
 
     h2 {
         font-family:"Bebas Neue";
+        color: rgb(39, 39, 39);
         font-size: 2em;
     }
 
 }
 
 .CardTitanCredit {
-    background-image: url("/Users/julia/Desktop/KOD/JAVASCRIPT3/PROJEKT/e-wallet/images/background-texture-yellow.jpg");
+    background-image: url("/Users/julia/Desktop/KOD/JAVASCRIPT3/PROJEKT/e-wallet/images/luke-chesser-tgrBcf7S_dY-unsplash (2).jpg");
     color: rgb(39, 39, 39);
     width: 30rem;
     border: 2px solid rgb(35, 35, 35);
@@ -84,6 +86,7 @@
 
     h2 {
         font-family:"Orbitron";
+        color: rgb(39, 39, 39);
         font-size: 2em;
     }
 }
@@ -95,6 +98,7 @@
 
 .CardIssuer {
     display: flex;
+    color: rgb(39, 39, 39);
     justify-content: flex-end;
     margin-right: 12px;
 }
@@ -130,4 +134,8 @@
 .CardExpire {
     margin-left: 24px;
     font-weight: bold;
+}
+
+p {
+    color:rgb(39, 39, 39);
 }

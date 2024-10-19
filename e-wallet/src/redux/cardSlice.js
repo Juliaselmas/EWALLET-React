@@ -56,20 +56,3 @@ const cardSlice = createSlice({
 export const { addCard, setActiveCard, updateCard, deleteCard } =
   cardSlice.actions;
 export default cardSlice.reducer;
-
-/*
-const cardSlice = createSlice({
-  name: "cards",
-  initialState,
-  reducers: {
-    addCard: (state, action) => {
-      if (state.cards.length < 4) {
-        state.cards.push(action.payload);
-      }
-    },
-    setActiveCard: (state, action) => {
-      state.activeCardId = action.payload;
-    },
-  },
-});
-*/

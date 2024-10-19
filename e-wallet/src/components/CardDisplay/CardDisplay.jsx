@@ -21,7 +21,7 @@ const CardDisplay = ({
           case "Titan Credit":
             return CardDisplayCSS.CardTitanCredit;
           default:
-            return CardDisplayCSS.Card; // Default stil om ingen issuer matchar
+            return CardDisplayCSS.Card;
         }
       };;
 

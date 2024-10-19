@@ -4,7 +4,7 @@ import DeleteInactiveCards from "../features/DeleteInactiveCards/DeleteInactiveC
 const Settings = ({ setTheme }) => {
   return (
     <div>
-      <ThemeToggle setTheme={setTheme} /> {/* Skickar setTheme */}
+      <ThemeToggle setTheme={setTheme} /> 
       <DeleteInactiveCards />
     </div>
   );

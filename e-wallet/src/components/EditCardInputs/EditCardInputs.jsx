@@ -18,8 +18,8 @@ const EditCardInputs = ({
   isActive
 }) => {
   const handleCardNumberChange = (e) => {
-    const value = e.target.value.replace(/\s+/g, ""); // Ta bort alla mellanrum
-    if (value.length <= 16 && /^\d*$/.test(value)) { // Tillåt endast siffror och max 16 tecken
+    const value = e.target.value.replace(/\s+/g, ""); 
+    if (value.length <= 16 && /^\d*$/.test(value)) { 
       setNumber(value);
     }
   };
@@ -39,8 +39,8 @@ const EditCardInputs = ({
         Card Number:
         <input 
           type="text" 
-          value={number.replace(/(.{4})/g, "$1 ").trim()} // Formatera med mellanslag
-          maxLength="19" // 16 siffror + 3 mellanrum
+          value={number.replace(/(.{4})/g, "$1 ").trim()} 
+          maxLength="19"
           disabled={isActive}
           onChange={handleCardNumberChange} 
         />

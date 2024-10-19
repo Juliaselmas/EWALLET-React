@@ -65,7 +65,6 @@ function AddCard() {
 
   return (
     <div className="AddNewCardContainer">
-      <h1>Add New Card</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <CardDisplay 

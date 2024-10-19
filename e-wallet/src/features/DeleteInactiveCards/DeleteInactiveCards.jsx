@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCard } from "../../redux/cardSlice";
 
 const DeleteInactiveCards = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-const cards = useSelector((state) => state.cards.cards);
-const activeCardId = useSelector((state) => state.cards.activeCardId);
-const inactiveCards = cards.filter(card => card.id !== activeCardId);
+  const cards = useSelector((state) => state.cards.cards);
+  const activeCardId = useSelector((state) => state.cards.activeCardId);
+  const inactiveCards = cards.filter((card) => card.id !== activeCardId);
 
-const handleDeleteInactiveCards = () => {
-    inactiveCards.forEach(card => dispatch(deleteCard(card.id)));
-};
+  const [buttonVisible, setButtonVisible] = useState(true);
 
-return (
+  const handleDeleteInactiveCards = () => {
+    inactiveCards.forEach((card) => dispatch(deleteCard(card.id)));
+    setButtonVisible(false); 
+  };
+
+  return (
     <div>
-        <button onClick={handleDeleteInactiveCards} disabled={inactiveCards.length === 0}>
-            Delete all inactive Cards
+      {buttonVisible && inactiveCards.length > 0 && (
+        <button
+          className="DeleteInactiveCardsBtn"
+          onClick={handleDeleteInactiveCards}
+        >
+          Delete all inactive Cards
         </button>
+      )}
     </div>
-)
+  );
 };
 
 export default DeleteInactiveCards;

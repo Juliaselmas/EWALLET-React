@@ -18,9 +18,9 @@ const AddCardInputs = ({
 }) => {
 
   const handleCardNumberChange = (e) => {
-    const rawNumber = e.target.value.replace(/\s+/g, ""); // Ta bort mellanslag
+    const rawNumber = e.target.value.replace(/\s+/g, ""); //tar bort mellanslag
     if (rawNumber.length <= 16 && /^\d*$/.test(rawNumber)) {
-      setNumber(rawNumber.replace(/(\d{4})(?=\d)/g, "$1 ")); // Lägg till mellanslag var fjärde siffra
+      setNumber(rawNumber.replace(/(\d{4})(?=\d)/g, "$1 ")); //lägger till mellanslag var fjärde siffra
     }
   };
 
@@ -29,6 +29,7 @@ const AddCardInputs = ({
       <label>
         Card Issuer:
         <select value={issuer} onChange={(e) => setIssuer(e.target.value)}>
+        <option value="" disabled>Issuer</option>
           <option value="GlobalPay">GlobalPay</option>
           <option value="FlexiCard">FlexiCard</option>
           <option value="Titan Credit">Titan Credit</option>
@@ -40,7 +41,7 @@ const AddCardInputs = ({
         <input 
           type="text" 
           value={number} 
-          maxLength="19" // 16 siffror + 3 mellanrum
+          maxLength="19"
           onChange={handleCardNumberChange} 
         />
       </label>
